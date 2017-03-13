@@ -49,6 +49,8 @@ function get_list_id($args=[]) {
  * @return mixed
 */
 function subscribe_from_cf7($args=null) {
+	
+	if (!$_POST['sendy_subscribe']) { return true; }
 
 	$sendyUrl = "http://www.yoursendy.com/subscribe";
 
@@ -59,8 +61,8 @@ function subscribe_from_cf7($args=null) {
 		}
 
 		$postdata = http_build_query([
-			'name' => $_POST['name'],
-			'email' => $_POST['email'],
+			'name' => $_POST['your-name'],
+			'email' => $_POST['your-email'],
 			'list' => $_POST['sendy_list_id'],
 			'boolean' => 'true'
 		]);
